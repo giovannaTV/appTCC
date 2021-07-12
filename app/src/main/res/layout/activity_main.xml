@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/buttonJogos"
+        android:id="@+id/buttonVoltarTelaInicial"
         android:layout_width="315dp"
         android:layout_height="129dp"
         android:layout_marginBottom="16dp"
@@ -37,7 +37,7 @@
         android:layout_height="339dp"
         android:layout_marginTop="12dp"
         android:gravity="center_horizontal|center_vertical"
-        android:text="Seja bem vindo(a) ao nosso aplicativo! Ele foi desenvolvido com o objetivo de descontrair e agilizar seu momento de diversão. Com os jogos desenvolvidos aqui, você poderá exercitar sua mente e ao mesmo tempo se divertir bastante. Afinal, mente ativa, vida longa!"
+        android:text="Seja bem vindo(a) ao nosso aplicativo! Ele foi desenvolvido com o objetivo de descontrair e otimizar seu momento de diversão. Com os jogos desenvolvidos aqui, você poderá exercitar sua mente e ao mesmo tempo se divertir bastante. Afinal, mente ativa, vida longa!"
         android:textAllCaps="true"
         android:textColor="#020202"
         android:textSize="24sp"

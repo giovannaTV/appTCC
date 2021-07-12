@@ -11,7 +11,7 @@
         android:id="@+id/buttonJogoMemoria"
         android:layout_width="294dp"
         android:layout_height="78dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="64dp"
         android:text="Jogo da Memória"
         android:textColor="#281D16"
         android:textSize="20sp"
@@ -19,13 +19,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
         android:id="@+id/buttonJogoAdivinharPalavras"
         android:layout_width="294dp"
         android:layout_height="78dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="124dp"
         android:text="JOGO DE ADIVINHAR PALAVRAS"
         android:textColor="#281D16"
         android:textSize="20sp"
@@ -33,7 +33,9 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonJogoMemoria"
+        app:layout_constraintVertical_bias="0.392" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -58,18 +60,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="398dp"
-        android:layout_height="109dp"
-        android:layout_marginTop="24dp"
-        android:gravity="center_horizontal"
-        android:text="JOGO DA MEMÓRIA E JOGO DE ADIVINHAR AS PALAVRAS"
-        android:textColor="#090909"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

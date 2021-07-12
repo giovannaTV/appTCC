@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:weightSum="3"
+    android:layout_height="match_parent"
+    android:background="#A9A9A9"
+    tools:context=".telaJogoDaMemoria">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="234dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="100dp"
+        app:srcCompat="@drawable/logoif" />
+
+    <Button
+        android:id="@+id/buttonVoltarTelaInicial"
+        android:layout_width="400dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="500dp"
+        android:text="voltar para tela inicial"
+        android:textColor="#281D16"
+        android:textSize="22sp"
+        app:backgroundTint="#359830"
+        app:layout_constraintVertical_bias="0.264" />
+</LinearLayout>

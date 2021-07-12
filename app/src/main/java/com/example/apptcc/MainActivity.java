@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        botaoIrParaTelaJogos = (Button) findViewById(R.id.buttonJogos);
+        botaoIrParaTelaJogos = (Button) findViewById(R.id.buttonVoltarTelaInicial);
 
         botaoIrParaTelaJogos.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
