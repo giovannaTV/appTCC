@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppTCC">
-        <activity android:name=".telaJogoAdivinharPalavras"></activity>
+        <activity android:name=".telaJogoEncontrarPalavras"></activity>
         <activity android:name=".telaJogoDaMemoria" />
         <activity android:name=".telaJogos" />
         <activity android:name=".MainActivity">

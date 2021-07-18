@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -26,12 +27,13 @@ public class telaJogoDaMemoria extends AppCompatActivity {
     //imagens atuais
     int image101, image102, image103, image104, image105, image106, image201, image202, image203, image204, image205, image206;
 
-    //Variável para 1 card e 2 card selecionado
-    int firstCard, secondCard;
+    //Variável para 1 e 2 imagem selecionado
+    int primeiraImagem, segundaImagem;
 
-    //Variável para controlar primeira e segunda imagem seleciona
-    int clickedFirst, clickedSecond;
+    //Variável para controlar o id das imagens selecionadas
+    int primeiroSelecionado, segundoSelecionado;
 
+    //Variável para controlar a vez da imagem selecionada
     int cardNumber = 1;
 
 
@@ -49,7 +51,7 @@ public class telaJogoDaMemoria extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        //Linkando as variáveis com as imagens
         iv_11 = findViewById(R.id.iv_11);
         iv_12 = findViewById(R.id.iv_12);
         iv_13 = findViewById(R.id.iv_13);
@@ -63,6 +65,7 @@ public class telaJogoDaMemoria extends AppCompatActivity {
         iv_21 = findViewById(R.id.iv_21);
         iv_22 = findViewById(R.id.iv_22);
 
+        //Setando as tags dos radioButtons para controle de qual foi selecionado
         iv_11.setTag("0");
         iv_12.setTag("1");
         iv_13.setTag("2");
@@ -198,21 +201,24 @@ public class telaJogoDaMemoria extends AppCompatActivity {
         }
         //checando qual imagem foi selecionada e salvando em variável temporária
         if (cardNumber == 1) {
-            firstCard = cardsArray[card];
-            if (firstCard > 200) {
-                firstCard = firstCard - 100;
+            //guarda primeira imagem
+            primeiraImagem = cardsArray[card];
+            if (primeiraImagem > 200) {
+                primeiraImagem = primeiraImagem - 100;
             }
             cardNumber = 2;
-            clickedFirst = card;
+            primeiroSelecionado = card;
             iv.setEnabled(false);
+        //guarda segunda imagem
         } else if (cardNumber == 2) {
-            secondCard = cardsArray[card];
-            if (secondCard > 200) {
-                secondCard = secondCard - 100;
+            segundaImagem = cardsArray[card];
+            if (segundaImagem > 200) {
+                segundaImagem = segundaImagem - 100;
             }
             cardNumber = 1;
-            clickedSecond = card;
+            segundoSelecionado = card;
 
+           //Desativando as imagens, enquanto verifica os pares
             iv_11.setEnabled(false);
             iv_12.setEnabled(false);
             iv_13.setEnabled(false);
@@ -239,62 +245,98 @@ public class telaJogoDaMemoria extends AppCompatActivity {
     }
 
     private void calculate() {
-        //se as imagens são iguais, remova elas e apresente uma mensagem de estímulo
-        if(firstCard == secondCard){
-            if(clickedFirst == 0){
+        //se as imagens são iguais, remova elas
+        if(primeiraImagem == segundaImagem){
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(telaJogoDaMemoria.this);
+            alertDialogBuilder
+                    .setMessage("PARABÉNS! VOCÊ ENCONTROU UM PAR DE IMAGENS!")
+                    .setCancelable(false);
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+
+            Handler handler = new Handler();
+
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    //checando se as palavras selecionadas são correspondentes
+                    if(alertDialog.isShowing())
+                    {
+                        alertDialog.dismiss();
+                    }
+                }
+            }, 7000);
+            if(primeiroSelecionado == 0){
                 iv_11.setVisibility(View.INVISIBLE);
-            } else if(clickedFirst == 1){
+            } else if(primeiroSelecionado == 1){
                 iv_12.setVisibility(View.INVISIBLE);
-            } else  if(clickedFirst == 2){
+            } else  if(primeiroSelecionado == 2){
                 iv_13.setVisibility(View.INVISIBLE);
-            } else if(clickedFirst == 3){
+            } else if(primeiroSelecionado == 3){
                 iv_14.setVisibility(View.INVISIBLE);
-            } else if(clickedFirst == 4){
+            } else if(primeiroSelecionado == 4){
                 iv_15.setVisibility(View.INVISIBLE);
-            } else if(clickedFirst == 5){
+            } else if(primeiroSelecionado == 5){
                 iv_16.setVisibility(View.INVISIBLE);
-            } else if(clickedFirst == 6){
+            } else if(primeiroSelecionado == 6){
                 iv_17.setVisibility(View.INVISIBLE);
-            } else if(clickedFirst == 7){
+            } else if(primeiroSelecionado == 7){
                 iv_18.setVisibility(View.INVISIBLE);
-            } else if(clickedFirst == 8){
+            } else if(primeiroSelecionado == 8){
                 iv_19.setVisibility(View.INVISIBLE);
-            } else  if(clickedFirst == 9){
+            } else  if(primeiroSelecionado == 9){
                 iv_20.setVisibility(View.INVISIBLE);
-            } else if(clickedFirst == 10){
+            } else if(primeiroSelecionado == 10){
                 iv_21.setVisibility(View.INVISIBLE);
-            } else  if(clickedFirst == 11){
+            } else  if(primeiroSelecionado == 11){
                 iv_22.setVisibility(View.INVISIBLE);
             }
 
-            if(clickedSecond == 0){
+            if(segundoSelecionado == 0){
                 iv_11.setVisibility(View.INVISIBLE);
-            } else if(clickedSecond == 1){
+            } else if(segundoSelecionado == 1){
                 iv_12.setVisibility(View.INVISIBLE);
-            } else  if(clickedSecond == 2){
+            } else  if(segundoSelecionado == 2){
                 iv_13.setVisibility(View.INVISIBLE);
-            } else if(clickedSecond == 3){
+            } else if(segundoSelecionado == 3){
                 iv_14.setVisibility(View.INVISIBLE);
-            } else if(clickedSecond == 4){
+            } else if(segundoSelecionado == 4){
                 iv_15.setVisibility(View.INVISIBLE);
-            } else if(clickedSecond == 5){
+            } else if(segundoSelecionado == 5){
                 iv_16.setVisibility(View.INVISIBLE);
-            } else if(clickedSecond == 6){
+            } else if(segundoSelecionado == 6){
                 iv_17.setVisibility(View.INVISIBLE);
-            } else if(clickedSecond == 7){
+            } else if(segundoSelecionado == 7){
                 iv_18.setVisibility(View.INVISIBLE);
-            } else if(clickedSecond == 8){
+            } else if(segundoSelecionado == 8){
                 iv_19.setVisibility(View.INVISIBLE);
-            } else  if(clickedSecond == 9){
+            } else  if(segundoSelecionado == 9){
                 iv_20.setVisibility(View.INVISIBLE);
-            } else if(clickedSecond == 10){
+            } else if(segundoSelecionado == 10){
                 iv_21.setVisibility(View.INVISIBLE);
-            } else  if(clickedSecond == 11){
+            } else  if(segundoSelecionado == 11){
                 iv_22.setVisibility(View.INVISIBLE);
             }
-            //Toast toast = Toast.makeText(contexto, texto,duracao);
-            //toast.show();
         } else {
+            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(telaJogoDaMemoria.this);
+            alertDialogBuilder
+                    .setMessage("NÃO FOI DESSA VEZ! MAS VOCÊ ESTÁ INDO MUITO BEM, CONTINUE TENTANDO!")
+                    .setCancelable(false);
+            AlertDialog alertDialog = alertDialogBuilder.create();
+            alertDialog.show();
+
+            Handler handler = new Handler();
+
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    //checando se as palavras selecionadas são correspondentes
+                    if(alertDialog.isShowing())
+                    {
+                        alertDialog.dismiss();
+                    }
+                }
+            }, 7000);
             iv_11.setImageResource(R.drawable.ic_back);
             iv_12.setImageResource(R.drawable.ic_back);
             iv_13.setImageResource(R.drawable.ic_back);
@@ -338,9 +380,10 @@ public class telaJogoDaMemoria extends AppCompatActivity {
                 iv_20.getVisibility() == View.INVISIBLE &&
                 iv_21.getVisibility() == View.INVISIBLE &&
                 iv_22.getVisibility() == View.INVISIBLE){
+
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(telaJogoDaMemoria.this);
             alertDialogBuilder
-                    .setMessage("PARABÉNS! VOCÊ ENCONTROU TODOS OS PARES! O JOGO TERMINOU. ")
+                    .setMessage("PARABÉNS! VOCÊ ENCONTROU TODOS OS PARES DE IMAGENS! O JOGO TERMINOU.")
                     .setCancelable(false)
                     .setPositiveButton("JOGAR NOVAMENTE", new DialogInterface.OnClickListener() {
                         @Override
@@ -358,6 +401,14 @@ public class telaJogoDaMemoria extends AppCompatActivity {
             });
             AlertDialog alertDialog = alertDialogBuilder.create();
             alertDialog.show();
+
+            Button buttonbackground = alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+            buttonbackground.setTextColor(Color.BLACK);
+            buttonbackground.setBackgroundColor(Color.WHITE);
+
+            Button buttonbackground1 = alertDialog.getButton(DialogInterface.BUTTON_POSITIVE);
+            buttonbackground1.setTextColor(Color.BLACK);
+            buttonbackground1.setBackgroundColor(Color.WHITE);
         }
     }
 

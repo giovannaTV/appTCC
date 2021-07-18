@@ -29,7 +29,7 @@ public class telaJogos extends AppCompatActivity {
 
         botaoIrParaTelaJogoAdivinharPalavras.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), telaJogoAdivinharPalavras.class);
+                Intent intent = new Intent(getApplicationContext(), telaJogoEncontrarPalavras.class);
                 startActivity(intent);
             }
         });
