@@ -47,7 +47,7 @@ public class telaJogoDaMemoria extends AppCompatActivity {
 
         botaoVoltarTelaInicial2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), telaJogos.class);
                 startActivity(intent);
             }
         });

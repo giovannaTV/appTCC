@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
@@ -14,24 +14,35 @@
         android:id="@+id/imageView"
         android:layout_width="234dp"
         android:layout_height="110dp"
-        android:layout_marginLeft="100dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logoif" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="400dp"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         android:gravity="center_horizontal|center_vertical"
         android:text="Aqui nós temos o jogo da memória. Clique em cada quadradinho verde para ver a imagem que está nele e tente encontrar seu par."
         android:textAllCaps="true"
         android:textColor="#020202"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"/>
 
     <LinearLayout
+        android:id="@+id/PrimeiraLinha"
         android:layout_width="wrap_content"
         android:weightSum="4"
         android:orientation="horizontal"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/iv_11"
@@ -40,41 +51,44 @@
             android:layout_weight="1"
             android:scaleType="centerInside"
             android:src="@drawable/ic_back" />
-    <ImageView
-        android:id="@+id/iv_12"
-        android:scaleType="centerInside"
-        android:layout_marginLeft="5dp"
-        android:layout_weight="1"
-        android:src="@drawable/ic_back"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"/>
-    <ImageView
-        android:id="@+id/iv_13"
-        android:scaleType="centerInside"
-        android:layout_marginLeft="5dp"
-        android:layout_weight="1"
-        android:src="@drawable/ic_back"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"/>
-    <ImageView
-        android:id="@+id/iv_14"
-        android:scaleType="centerInside"
-        android:layout_marginLeft="5dp"
-        android:layout_weight="1"
-        android:src="@drawable/ic_back"
-        android:layout_width="match_parent"
-        android:layout_height="100dp"/>
+        <ImageView
+            android:id="@+id/iv_12"
+            android:scaleType="centerInside"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_back"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+        <ImageView
+            android:id="@+id/iv_13"
+            android:scaleType="centerInside"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_back"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+        <ImageView
+            android:id="@+id/iv_14"
+            android:scaleType="centerInside"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:src="@drawable/ic_back"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/SegundaLinha"
         android:layout_width="wrap_content"
         android:weightSum="4"
         android:orientation="horizontal"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/PrimeiraLinha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
         <ImageView
             android:id="@+id/iv_15"
             android:scaleType="centerInside"
-
             android:layout_weight="1"
             android:src="@drawable/ic_back"
             android:layout_width="match_parent"
@@ -106,14 +120,17 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/TerceiraLinha"
         android:layout_width="wrap_content"
         android:weightSum="4"
         android:orientation="horizontal"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/SegundaLinha"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">>
         <ImageView
             android:id="@+id/iv_19"
             android:scaleType="centerInside"
-
             android:layout_weight="1"
             android:src="@drawable/ic_back"
             android:layout_width="match_parent"
@@ -148,12 +165,14 @@
         android:id="@+id/buttonVoltarTelaInicial2"
         android:layout_width="400dp"
         android:layout_height="80dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
         android:text="voltar para tela inicial"
         android:textColor="#281D16"
-        android:textSize="22sp"
+        android:textSize="24sp"
         app:backgroundTint="#359830"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="5dp"
-        app:layout_constraintVertical_bias="0.264" />
-</LinearLayout>
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TerceiraLinha" />
+</androidx.constraintlayout.widget.ConstraintLayout>
